@@ -16,23 +16,23 @@ const Form = (props) => {
 
     const submitHandler = (submission) => {
         submission.preventDefault();
-        if (age < 0 || age > 100){
-          window.alert(`Invalid Age! Choose a number between 0 and 100`);
-          
-        }
-        if (age === ""){
-          window.alert(`Please Insert a valid age!`);
+        if (userName === "" && age === ""){
+          props.onInputCheck(true, 'Please enter a valid name and age (non-empty values).');
           return;
         }
         if (userName === ""){
-          window.alert("Please Insert a valir username!");
+          props.onInputCheck(true, 'Please insert a username!');
+          return;
+        }
+        if (age < 0 || age === ''){
+          props.onInputCheck(true, 'Please enter a valid age(>0).');
           return;
         }
         const user = {
             name: userName,
             age: age
         };
-
+        props.onInputCheck(false, '');
         props.onUserAdded(user);
     }
     return (

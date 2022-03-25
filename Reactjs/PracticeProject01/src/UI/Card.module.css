@@ -1,7 +1,12 @@
 .card {
-    width: 20vw;
+    width: 95vw;
     border: 1px black hidden;
     border-radius: 10px;
     background-color: #fff;
-    
+}
+
+@media (min-width: 768px){
+    .card{
+        width: 60vw;
+    }
 }
