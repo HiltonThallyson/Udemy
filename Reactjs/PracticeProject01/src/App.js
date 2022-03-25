@@ -15,7 +15,7 @@ function App() {
   return (
     <div>
       <Card>
-        <Form onUserAdd = {addUserHandler}/>
+        <Form onUserAdded = {addUserHandler}/>
       </Card>
       <Card>
         <UsersList items={users}/>
