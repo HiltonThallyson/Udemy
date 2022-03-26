@@ -24,7 +24,7 @@ const Form = (props) => {
           props.onInputCheck(true, 'Please insert a username!');
           return;
         }
-        if (age < 0 || age === ''){
+        if (age < 1 || age === ''){
           props.onInputCheck(true, 'Please enter a valid age(>0).');
           return;
         }
