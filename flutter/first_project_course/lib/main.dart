@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,23 @@ void main() {
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Hello!'),
-    );
+        home: Scaffold(
+            body: CustomScrollView(
+              slivers: [SliverGrid(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 140.0,
+                childAspectRatio: 1.0,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return Container(
+                    alignment: Alignment.center,
+                    color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                  );
+                },
+                childCount: 20,
+              ),
+                )],
+            )));
   }
 }
