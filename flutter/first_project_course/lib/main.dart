@@ -50,6 +50,14 @@ class _MyAppState extends State<MyApp> {
   ];
   var _questionIndex = 0;
   var _totalScore = 0;
+
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   void _answerQuestion(int score) {
     _totalScore += score;
     setState(() {
@@ -61,37 +69,16 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
         home: Scaffold(
-            body: CustomScrollView(
-              slivers: [SliverGrid(
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 140.0,
-                childAspectRatio: 1.0,
-              ),
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return Container(
-                    alignment: Alignment.center,
-                    color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
-                  );
-                },
-                childCount: 20,
-              ),
-                )],
-            )));
-=======
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('My first App'),
-          ),
-          body: _questionIndex < _questions.length
-              ? Quiz(
-                  answerQuestion: _answerQuestion,
-                  questions: _questions,
-                  questionIndex: _questionIndex)
-              : Result(_totalScore)),
-    );
->>>>>>> 93663e03a5c7205bdee78530158c5a81480c26b6
+      appBar: AppBar(
+        title: Text('My first App'),
+      ),
+      body: _questionIndex < _questions.length
+          ? Quiz(
+              answerQuestion: _answerQuestion,
+              questions: _questions,
+              questionIndex: _questionIndex)
+          : Result(_totalScore, _resetQuiz),
+    ));
   }
 }
