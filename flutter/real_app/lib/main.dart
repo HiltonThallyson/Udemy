@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'transaction.dart';
-import 'package:intl/intl_browser.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,7 +34,6 @@ class MyHomePage extends StatelessWidget {
           title: Text('Flutter App'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
@@ -43,6 +42,29 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.blue,
                 child: Text('Chart'),
                 elevation: 5,
+              ),
+            ),
+            Card(
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(decoration: InputDecoration(labelText: 'Amount')),
+                    TextButton(
+                        style: ButtonStyle(
+                            foregroundColor:
+                                MaterialStateProperty.all(Colors.purple)),
+                        onPressed: () {},
+                        child: Text(
+                          'Add Transaction',
+                        )),
+                  ],
+                ),
               ),
             ),
             Column(
@@ -77,7 +99,7 @@ class MyHomePage extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         Text(
-                          DateFormat().parse(inputString)
+                          DateFormat.yMMMd().format(tx.date),
                           style: TextStyle(fontSize: 10, color: Colors.grey),
                         )
                       ],
