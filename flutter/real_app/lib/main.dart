@@ -26,10 +26,11 @@ class MyApp extends StatelessWidget {
             ),
             textTheme: TextTheme().copyWith(
                 headline6: TextStyle(
-              fontFamily: 'Open Sans',
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            )),
+                  fontFamily: 'Open Sans',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+                button: TextStyle(color: Colors.white)),
             fontFamily: 'Quicksand'));
   }
 }
